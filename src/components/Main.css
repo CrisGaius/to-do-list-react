@@ -1,5 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  text-decoration: none;
+  border: 0;
+  list-style: none;
+}
+
+:root {
+  --5C9FC5: #5c9fc5;
+  --62869B: #62869b;
+  --48B2F0: #48b2f0;
+  --5A6870: #5a6870;
+  --3A4146: #3a4146;
+  --222D33: #222d33;
+  --FFF: #fff;
+  --000: #000;
+}
+
 #main {
-  background: #fff;
+  background: var(--FFF);
   padding: 30px;
   margin: 50px auto;
   max-width: 500px;
@@ -31,8 +52,50 @@
   border: none;
   height: 40px;
   width: 40px;
-  background-color: #48b2f0;
+  background-color: var(--48B2F0);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.tasks {
+  margin-top: 30px;
+}
+
+.tasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 100ms ease-in-out; /* Instrutor coloca o transition dentro do elemento puro */
+}
+
+.tasks li:hover {
+  background-color: var(--62869B);
+}
+
+.task .tasks .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks .edit {
+  color: var(--5C9FC5);
+  margin-right: 15px;
+}
+
+.tasks .delete {
+  color: var(--3A4146);
+}
+
+li:hover .edit,
+li:hover .delete {
+  color: var(--000);
+}
+
+.edit,
+.delete {
+  transition: all 100ms ease-in-out; /* Instrutor coloca o transition dentro do elemento puro */
 }
