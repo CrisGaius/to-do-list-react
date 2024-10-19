@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
+
+import { FaPlus } from 'react-icons/fa';
+
 import './Main.css';
 
 export default class Main extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     newTask: '',
-  //   };
-
-  //   this.inputChange = this.inputChange.bind(this);
-  // }
-
   state = {
     newTask: '',
   };
@@ -26,13 +19,12 @@ export default class Main extends Component {
     const { newTask } = this.state;
 
     return (
-      <div className="main">
-        <h1>{newTask}</h1>
+      <div id="main">
         <h1>Lista de Tarefas</h1>
 
-        <form>
-          <input type="text" onChange={this.inputChange} />
-          <button type="submit">Enviar</button>
+        <form className="form">
+          <input type="text" onChange={this.inputChange} value={newTask} />
+          <button type="submit"><FaPlus /></button>
         </form>
       </div>
     );
