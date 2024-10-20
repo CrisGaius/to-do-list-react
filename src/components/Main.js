@@ -8,19 +8,31 @@ export default class Main extends Component {
   state = {
     newTask: '',
     tasks: [],
+    index: -1,
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { tasks } = this.state;
+    const { tasks, index } = this.state;
     let { newTask } = this.state;
 
     newTask = newTask.trim();
     if (tasks.indexOf(newTask) !== -1) return;
 
-    this.setState({
-      tasks: [...tasks, newTask],
-    });
+    if (index === -1) {
+      this.setState({
+        tasks: [...tasks, newTask],
+        newTask: '',
+      });
+    } else {
+      const newTasks = [...tasks];
+      newTasks[index] = newTask;
+
+      this.setState({
+        tasks: [...newTasks],
+        index: -1,
+      });
+    }
   };
 
   handleChange = (e) => {
@@ -30,7 +42,11 @@ export default class Main extends Component {
   };
 
   handleEdit = (e, index) => {
-    console.log(`edit ${e}, ${index}`);
+    const { tasks } = this.state;
+    this.setState({
+      index,
+      newTask: tasks[index],
+    });
   };
 
   handleDelete = (e, index) => {
