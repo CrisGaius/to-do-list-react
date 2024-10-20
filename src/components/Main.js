@@ -23,9 +23,23 @@ export default class Main extends Component {
     });
   };
 
-  inputChange = (e) => {
+  handleChange = (e) => {
     this.setState({
       newTask: e.target.value,
+    });
+  };
+
+  handleEdit = (e, index) => {
+    console.log(`edit ${e}, ${index}`);
+  };
+
+  handleDelete = (e, index) => {
+    const { tasks } = this.state;
+    const allTasksAfterDelete = [...tasks];
+    allTasksAfterDelete.splice(index, 1);
+
+    this.setState({
+      tasks: [...allTasksAfterDelete],
     });
   };
 
@@ -37,17 +51,17 @@ export default class Main extends Component {
         <h1>To do List</h1>
 
         <form className="form" onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.inputChange} value={newTask} />
+          <input type="text" onChange={this.handleChange} value={newTask} />
           <button type="submit"><FaPlus /></button>
         </form>
 
         <ul className="tasks">
-          {tasks.map((task) => (
+          {tasks.map((task, index) => (
             <li key={task}>
               {task}
               <span className="buttons">
-                <FaEdit className="edit" />
-                <FaWindowClose className="delete" />
+                <FaEdit className="edit" onClick={(e) => this.handleEdit(e, index)} />
+                <FaWindowClose className="delete" onClick={(e) => this.handleDelete(e, index)} />
               </span>
             </li>
           ))}
