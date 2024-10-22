@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { FaPlus, FaEdit, FaWindowClose } from 'react-icons/fa';
+import { FaEdit, FaWindowClose } from 'react-icons/fa';
+
+import Form from './Form';
 
 import './Main.css';
 
@@ -84,11 +86,11 @@ export default class Main extends Component {
       <div id="main">
         <h1>To do List</h1>
 
-        <form className="form" onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleChange} value={newTask} />
-          <button type="submit"><FaPlus /></button>
-        </form>
-
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          newTask={newTask}
+        />
         <ul className="tasks">
           {tasks.map((task, index) => (
             <li key={task}>
