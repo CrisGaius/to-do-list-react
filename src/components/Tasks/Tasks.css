@@ -1,0 +1,40 @@
+.tasks {
+  margin-top: 30px;
+}
+
+.tasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 100ms ease-in-out; /* Instrutor coloca o transition dentro do elemento puro */
+}
+
+.tasks li:hover {
+  background-color: var(--62869B);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.tasks .edit {
+  color: var(--5C9FC5);
+  margin-right: 15px;
+}
+
+.tasks .delete {
+  color: var(--3A4146);
+}
+
+li:hover .edit,
+li:hover .delete {
+  color: var(--000);
+}
+
+.edit,
+.delete {
+  transition: all 100ms ease-in-out; /* Instrutor coloca o transition dentro do elemento puro */
+}

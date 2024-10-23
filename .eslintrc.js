@@ -27,5 +27,6 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'class-methods-use-this': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };
